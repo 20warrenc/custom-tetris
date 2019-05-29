@@ -27,8 +27,14 @@
 		<script type="text/javascript" src="jasmine/lib/jasmine-{3.4.0}/jasmine-html.js"></script>
 		<script type="text/javascript" src="jasmine/lib/jasmine-{3.4.0}/boot.js"></script>
 		<link rel="stylesheet" href="css/style.css" type="text/css" />
+		<title>Mocha Tests</title>
+<link rel="stylesheet" href="node_modules/mocha/mocha.css">
 	</head>
 	<body>
+		<div id="mocha"></div>
+<script src="node_modules/mocha/mocha.js"></script>
+<script src="node_modules/chai/chai.js"></script>
+<script>mocha.setup('bdd')</script>
 		<div id="left"></div>
 		<div id="right"></div>
 		<div id="info">
@@ -66,5 +72,8 @@
 		</div>
 		<script>new Game.App();</script>
 		<script type='text/javascript' src='https://cdn.firebase.com/v0/firebase.js'></script>
+		<script>
+	mocha.run();
+</script>
 	</body>
 </html>
