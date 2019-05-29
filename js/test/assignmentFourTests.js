@@ -1,4 +1,4 @@
-package custom-tetris.js
+package custom-tetris/js
 
 import org.junit.Before;
 import org.junit.Test;
