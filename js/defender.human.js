@@ -30,5 +30,10 @@ Game.Defender.Human.prototype.handleEvent = function(e) {
 			e.preventDefault();
 			this._engine.drop();
 		break;
+		
+		case 32: /* space bar drop patch */
+			e.preventDefault();
+			this._engine.drop();
+		break;
 	}
 }
