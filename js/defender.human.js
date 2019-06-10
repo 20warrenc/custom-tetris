@@ -26,9 +26,9 @@ Game.Defender.Human.prototype.handleEvent = function(e) {
 			this._engine.rotate();
 		break;
 
-		case 40: /* bottom */
+		case 40: /* drop block by one row */
 			e.preventDefault();
-			this._engine.drop();
+			this._engine._tick();
 		break;
 		
 		case 32: /* space bar drop patch */
