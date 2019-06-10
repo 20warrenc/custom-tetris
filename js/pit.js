@@ -53,45 +53,6 @@ Game.Pit.prototype.fromJSON = function(data) {
 	}
 }
 
-Game.Pit.prototype.getScore = function() {
-	var max = Math.max.apply(Math, this.cols);
-	var cells = 0;
-	var holes = 0;
-	var slope = 0;
-	var maxslope = 0;
-	var weight = 0;
-	
-	for (var p in this.cells) { 
-		cells++;
-
-		var xy = this.cells[p].xy;
-		weight += xy.y+1;
-
-		/* test holes */
-		xy = xy.clone();
-		xy.y--;
-		if (xy.y >= 0 && !(xy in this.cells)) { holes++; }
-	}
-
-	for (var i=0;i<this.cols.length-1;i++) {
-		var diff = Math.abs(this.cols[i]-this.cols[i+1]);
-		slope += diff;
-		maxslope = Math.max(maxslope, diff);
-	}
-
-/*
-	console.log("cells", cells);
-	console.log("holes", holes);
-	console.log("slope", slope);
-	console.log("maxslope", maxslope);
-	console.log("weight", weight);
-	console.log("max", max);
-*/
-	var W = [   20,   1,     1,        1,     1,      1];
-	var S = [holes, max, cells, maxslope, slope, weight];
-	return W[0]*S[0] + W[1]*S[1] + W[2]*S[2] + W[3]*S[3] + W[4]*S[4] + W[5]*S[5];
-}
-
 Game.Pit.prototype.drop = function(piece) {
 	var gravity = new XY(0, -1);
 	while (piece.fits(this)) {
